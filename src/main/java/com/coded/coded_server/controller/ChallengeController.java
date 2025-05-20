@@ -8,6 +8,7 @@ import com.coded.coded_server.model.User;
 import com.coded.coded_server.repository.UserRepository;
 import com.coded.coded_server.service.ChallengeService;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/challenges")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class ChallengeController {
 
     private final ChallengeService challengeService;
