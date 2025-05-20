@@ -26,5 +26,7 @@ public class Challenge {
 
     private String description;
 
+    private Integer time;
+
     private String languages;
 }

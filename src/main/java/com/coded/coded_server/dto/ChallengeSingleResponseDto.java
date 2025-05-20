@@ -10,5 +10,6 @@ public class ChallengeSingleResponseDto {
     private UserResponseDto user;
     private String title;
     private String description;
+    private Integer time;
     private String languages;
 }

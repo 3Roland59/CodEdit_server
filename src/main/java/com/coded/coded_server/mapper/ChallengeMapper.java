@@ -16,6 +16,7 @@ public class ChallengeMapper {
                 .user(user)
                 .title(dto.getTitle())
                 .description(dto.getDescription())
+                .time(dto.getTime())
                 .languages(dto.getLanguages())
                 .build();
     }
@@ -26,6 +27,7 @@ public class ChallengeMapper {
         response.setUserId(challenge.getUser().getId());
         response.setTitle(challenge.getTitle());
         response.setDescription(challenge.getDescription());
+        response.setTime(challenge.getTime());
         response.setLanguages(challenge.getLanguages());
         return response;
     }
@@ -36,6 +38,7 @@ public class ChallengeMapper {
         response.setUser(UserMapper.toResponse(challenge.getUser()));
         response.setTitle(challenge.getTitle());
         response.setDescription(challenge.getDescription());
+        response.setTime(challenge.getTime());
         response.setLanguages(challenge.getLanguages());
         return response;
     }
