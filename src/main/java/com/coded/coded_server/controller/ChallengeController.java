@@ -46,15 +46,15 @@ public class ChallengeController {
     }
 
     @GetMapping("/user")
-public ResponseEntity<List<ChallengeResponseDto>> getUserChallenges(
-        @RequestHeader("Authorization") String authHeader) {
+    public ResponseEntity<List<ChallengeResponseDto>> getUserChallenges(
+            @RequestHeader("Authorization") String authHeader) {
 
-    String token = authHeader.substring(7);
-    String userId = jwtService.extractId(token);
+        String token = authHeader.substring(7);
+        String userId = jwtService.extractId(token);
 
-    List<ChallengeResponseDto> challenges = challengeService.getAllChallengesById(UUID.fromString(userId));
-    return ResponseEntity.ok(challenges);
-}
+        List<ChallengeResponseDto> challenges = challengeService.getAllChallengesById(UUID.fromString(userId));
+        return ResponseEntity.ok(challenges);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<ChallengeSingleResponseDto> getById(@PathVariable UUID id) {

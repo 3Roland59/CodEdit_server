@@ -3,10 +3,13 @@ package com.coded.coded_server.mapper;
 import com.coded.coded_server.dto.ChallengeRequestDto;
 import com.coded.coded_server.dto.ChallengeResponseDto;
 import com.coded.coded_server.dto.ChallengeSingleResponseDto;
+import com.coded.coded_server.dto.TestCaseResponseDto;
 import com.coded.coded_server.model.Challenge;
 import com.coded.coded_server.model.User;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class ChallengeMapper {
 
@@ -40,6 +43,14 @@ public class ChallengeMapper {
         response.setDescription(challenge.getDescription());
         response.setTime(challenge.getTime());
         response.setLanguages(challenge.getLanguages());
+
+        List<TestCaseResponseDto> testCases = challenge.getTestCases() != null
+                ? challenge.getTestCases().stream()
+                    .map(TestCaseMapper::toResponse)
+                    .collect(Collectors.toList())
+                : List.of();
+
+        response.setTestCases(testCases);
         return response;
     }
 }

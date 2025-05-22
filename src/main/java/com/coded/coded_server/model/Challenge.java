@@ -2,6 +2,9 @@ package com.coded.coded_server.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -29,4 +32,7 @@ public class Challenge {
     private Integer time;
 
     private String languages;
+
+    @OneToMany(mappedBy = "challenge", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<TestCase> testCases = new ArrayList<>();
 }
