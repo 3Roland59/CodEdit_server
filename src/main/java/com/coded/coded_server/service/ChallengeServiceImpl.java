@@ -3,6 +3,7 @@ package com.coded.coded_server.service;
 import com.coded.coded_server.dto.ChallengeRequestDto;
 import com.coded.coded_server.dto.ChallengeResponseDto;
 import com.coded.coded_server.dto.ChallengeSingleResponseDto;
+import com.coded.coded_server.exception.ResourceNotFoundException;
 import com.coded.coded_server.mapper.ChallengeMapper;
 import com.coded.coded_server.mapper.TestCaseMapper;
 import com.coded.coded_server.model.Challenge;
@@ -61,14 +62,14 @@ public class ChallengeServiceImpl implements ChallengeService {
     @Override
     public ChallengeSingleResponseDto getChallengeById(UUID id) {
         Challenge challenge = challengeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Challenge not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Challenge not found"));
         return ChallengeMapper.toSingleResponse(challenge);
     }
 
     @Override
     public ChallengeResponseDto updateChallenge(UUID userId, UUID id, ChallengeRequestDto dto) {
         Challenge challenge = challengeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Challenge not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Challenge not found"));
 
         if (!challenge.getUser().getId().equals(userId)) {
             throw new RuntimeException("Unauthorized: You can only update your own challenges");
@@ -96,7 +97,7 @@ public class ChallengeServiceImpl implements ChallengeService {
     @Override
     public void deleteChallenge(UUID id) {
         if (!challengeRepository.existsById(id)) {
-            throw new RuntimeException("Challenge not found");
+            throw new ResourceNotFoundException("Challenge not found");
         }
         challengeRepository.deleteById(id);
     }
