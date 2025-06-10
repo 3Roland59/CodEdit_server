@@ -37,13 +37,13 @@ public class Submission {
     private String language;
 
     @Column
-    private String result; // e.g., "Success", "Failed", "Compile Error"
+    private Boolean success;
 
     @Column
     private Double score;
 
     @Column(columnDefinition = "TEXT")
-    private String scoreBreakdown;
+    private String message;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

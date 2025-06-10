@@ -13,8 +13,8 @@ public class SubmissionResponseDto {
     private UUID challengeId;
     private String code;
     private String language;
-    private String result;
+    private Boolean success;
     private double score;
-    private String scoreBreakdown;
+    private String message;
     private LocalDateTime createdAt;
 }

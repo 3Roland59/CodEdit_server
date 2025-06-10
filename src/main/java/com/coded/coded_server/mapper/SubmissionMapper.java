@@ -30,9 +30,9 @@ public class SubmissionMapper {
         dto.setChallengeId(submission.getChallenge().getId());
         dto.setCode(submission.getCode());
         dto.setLanguage(submission.getLanguage());
-        dto.setResult(submission.getResult());
+        dto.setSuccess(submission.getSuccess());
         dto.setScore(submission.getScore());
-        dto.setScoreBreakdown(submission.getScoreBreakdown());
+        dto.setMessage(submission.getMessage());
         dto.setCreatedAt(submission.getCreatedAt());
         return dto;
     }
