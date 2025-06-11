@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.coded.coded_server.model.TestCaseResult;
 
 
-public interface TestCaseResultRepo extends JpaRepository<TestCaseResult, UUID> {
+public interface TestCaseResultRepository extends JpaRepository<TestCaseResult, UUID> {
     List<TestCaseResult> findBySubmissionId(UUID submissionId);
 }

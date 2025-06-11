@@ -7,6 +7,7 @@ import java.util.UUID;
 @Data
 public class SubmissionRequestDto {
     private String studentId;
+    private String submissionKey;
     private String studentName;
     private UUID challengeId;
     private String code;

@@ -1,11 +1,19 @@
 package com.coded.coded_server.listener;
 
-import com.coded.coded_server.dto.*;
-import com.coded.coded_server.repository.*;
+
+import java.util.UUID;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.coded.coded_server.dto.ExecutionResponseDto;
+import com.coded.coded_server.dto.TestCaseResultRequestDto;
+import com.coded.coded_server.mapper.TestCaseResultMapper;
+import com.coded.coded_server.model.Submission;
+import com.coded.coded_server.model.TestCaseResult;
+import com.coded.coded_server.repository.SubmissionRepository;
+import com.coded.coded_server.repository.TestCaseResultRepository;
 
 @Component
 public class ExecutionResponseListener {
@@ -30,7 +38,7 @@ public class ExecutionResponseListener {
             .orElseThrow(() -> new RuntimeException("Submission not found: " + submissionId));
 
         submission.setScore(responseDto.getScore());
-        submission.setSuccess(responseDto.isSuccess());
+        submission.setSuccess(responseDto.getSuccess());
         submission.setMessage(responseDto.getMessage());
 
         submissionRepository.save(submission);

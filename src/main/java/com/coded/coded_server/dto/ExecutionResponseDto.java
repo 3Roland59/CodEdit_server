@@ -1,7 +1,8 @@
+package com.coded.coded_server.dto;
+
 import java.util.List;
 
 import lombok.Data;
-import java.util.List;
 
 @Data
 public class ExecutionResponseDto {

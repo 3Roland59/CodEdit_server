@@ -21,8 +21,11 @@ public class Submission {
     @GeneratedValue
     private UUID id;
 
-    @Column(length = 10, nullable = false, unique = true)
+    @Column(length = 10, nullable = false)
     private String studentId;
+
+    @Column(nullable = false)
+    private String submissionKey;
 
     @Column(nullable = false)
     private String studentName;

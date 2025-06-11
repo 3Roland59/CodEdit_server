@@ -10,6 +10,7 @@ import java.util.UUID;
 public class SubmissionResponseDto {
     private UUID id;
     private String studentId;
+    private String submissionKey;
     private String studentName;
     private UUID challengeId;
     private String code;

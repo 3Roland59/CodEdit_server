@@ -9,5 +9,5 @@ import java.util.UUID;
 public interface SubmissionService {
     SubmissionResponseDto createSubmission(SubmissionRequestDto dto);
     List<SubmissionResponseDto> getSubmissionsByChallengeId(UUID challengeId);
-    SubmissionResponseDto getSubmissionsByStudentId(String studentId);
+    SubmissionResponseDto getSubmissionsByStudentId(String studentId, UUID challengeId, String submissionKey);
 }

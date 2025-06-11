@@ -18,6 +18,7 @@ public class SubmissionMapper {
         return Submission.builder()
                 .id(UUID.randomUUID())
                 .studentId(dto.getStudentId())
+                .submissionKey(dto.getSubmissionKey())
                 .studentName(dto.getStudentName())
                 .challenge(challenge)
                 .code(dto.getCode())
@@ -30,6 +31,7 @@ public class SubmissionMapper {
         SubmissionResponseDto dto = new SubmissionResponseDto();
         dto.setId(submission.getId());
         dto.setStudentId(submission.getStudentId());
+        dto.setSubmissionKey(submission.getSubmissionKey());
         dto.setStudentName(submission.getStudentName());
         dto.setChallengeId(submission.getChallenge().getId());
         dto.setCode(submission.getCode());
