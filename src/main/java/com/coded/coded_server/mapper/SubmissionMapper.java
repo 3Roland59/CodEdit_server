@@ -2,21 +2,18 @@ package com.coded.coded_server.mapper;
 
 import com.coded.coded_server.dto.SubmissionRequestDto;
 import com.coded.coded_server.dto.SubmissionResponseDto;
-import com.coded.coded_server.dto.TestCaseResponseDto;
 import com.coded.coded_server.dto.TestCaseResultResponseDto;
 import com.coded.coded_server.model.Challenge;
 import com.coded.coded_server.model.Submission;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class SubmissionMapper {
 
     public static Submission toEntity(SubmissionRequestDto dto, Challenge challenge) {
         return Submission.builder()
-                .id(UUID.randomUUID())
                 .studentId(dto.getStudentId())
                 .submissionKey(dto.getSubmissionKey())
                 .studentName(dto.getStudentName())

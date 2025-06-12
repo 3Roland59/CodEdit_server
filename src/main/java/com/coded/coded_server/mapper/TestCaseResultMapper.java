@@ -1,6 +1,5 @@
 package com.coded.coded_server.mapper;
 
-import java.util.UUID;
 
 import com.coded.coded_server.dto.TestCaseResultRequestDto;
 import com.coded.coded_server.dto.TestCaseResultResponseDto;
@@ -10,7 +9,6 @@ import com.coded.coded_server.model.TestCaseResult;
 public class TestCaseResultMapper {
     public static TestCaseResult toEntity(TestCaseResultRequestDto dto, Submission submission) {
         TestCaseResult testCaseResult = new TestCaseResult();
-        testCaseResult.setId(UUID.randomUUID());
         testCaseResult.setInput(dto.getInput());
         testCaseResult.setExpected(dto.getExpected());
         testCaseResult.setOutput(dto.getOutput());

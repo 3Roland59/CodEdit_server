@@ -11,7 +11,6 @@ public class TestCaseMapper {
 
     public static TestCase toEntity(TestCaseRequestDto dto, Challenge challenge) {
         TestCase testCase = new TestCase();
-        testCase.setId(UUID.randomUUID());
         testCase.setInputDataType(dto.getInputDataType());
         testCase.setInputValue(dto.getInputValue());
         testCase.setOutputDataType(dto.getOutputDataType());

@@ -27,20 +27,19 @@ public class ChallengeServiceImpl implements ChallengeService {
     private final TestCaseRepository testCaseRepository;
 
     @Override
-    public ChallengeResponseDto createChallenge(ChallengeRequestDto dto, User user) {
-        Challenge challenge = ChallengeMapper.toEntity(dto, user);
-        challenge.setId(UUID.randomUUID());
-        Challenge savedChallenge = challengeRepository.save(challenge);
+public ChallengeResponseDto createChallenge(ChallengeRequestDto dto, User user) {
+    Challenge challenge = ChallengeMapper.toEntity(dto, user);
 
+    List<TestCase> testCases = dto.getTestCases().stream()
+            .map(testCaseDto -> TestCaseMapper.toEntity(testCaseDto, challenge))
+            .collect(Collectors.toList());
 
-        List<TestCase> testCases = dto.getTestCases().stream()
-                .map(testCaseDto -> TestCaseMapper.toEntity(testCaseDto, challenge))
-                .collect(Collectors.toList());
-        testCaseRepository.saveAll(testCases);
+    challenge.setTestCases(testCases);
 
-        savedChallenge.setTestCases(testCases);
-        return ChallengeMapper.toResponse(savedChallenge);
-    }
+    Challenge savedChallenge = challengeRepository.save(challenge);
+
+    return ChallengeMapper.toResponse(savedChallenge);
+}
 
 
     @Override
