@@ -2,6 +2,7 @@ package com.coded.coded_server.mapper;
 
 import com.coded.coded_server.dto.SubmissionRequestDto;
 import com.coded.coded_server.dto.SubmissionResponseDto;
+import com.coded.coded_server.dto.SubmissionCreateResponseDto;
 import com.coded.coded_server.dto.TestCaseResultResponseDto;
 import com.coded.coded_server.model.Challenge;
 import com.coded.coded_server.model.Submission;
@@ -45,6 +46,19 @@ public class SubmissionMapper {
                 : List.of();
 
         dto.setTestCaseResult(testCasesResult);
+        return dto;
+    }
+
+    public static SubmissionCreateResponseDto toCreateResponse(Submission submission) {
+        SubmissionCreateResponseDto dto = new SubmissionCreateResponseDto();
+        dto.setId(submission.getId());
+        dto.setStudentId(submission.getStudentId());
+        dto.setSubmissionKey(submission.getSubmissionKey());
+        dto.setStudentName(submission.getStudentName());
+        dto.setChallengeId(submission.getChallenge().getId());
+        dto.setCode(submission.getCode());
+        dto.setLanguage(submission.getLanguage());
+        dto.setCreatedAt(submission.getCreatedAt());
         return dto;
     }
 }

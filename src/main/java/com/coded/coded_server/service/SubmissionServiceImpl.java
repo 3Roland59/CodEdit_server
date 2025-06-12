@@ -31,7 +31,7 @@ public class SubmissionServiceImpl implements SubmissionService {
     private final ChallengeRepository challengeRepository;
 
         @Override
-    public SubmissionResponseDto createSubmission(SubmissionRequestDto dto) {
+    public SubmissionCreateResponseDto createSubmission(SubmissionRequestDto dto) {
         Challenge challenge = challengeRepository.findById(dto.getChallengeId())
                 .orElseThrow(() -> new ResourceNotFoundException("Challenge not found for ID: " + dto.getChallengeId()));
 
@@ -64,7 +64,7 @@ public class SubmissionServiceImpl implements SubmissionService {
 
         rabbitTemplate.convertAndSend("code_execution_requests", executionRequest);
 
-        return SubmissionMapper.toResponse(saved);
+        return SubmissionMapper.toCreateResponse(saved);
     }
 
     @Override

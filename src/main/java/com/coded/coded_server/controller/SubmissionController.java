@@ -2,6 +2,7 @@ package com.coded.coded_server.controller;
 
 import com.coded.coded_server.dto.SubmissionKeyDto;
 import com.coded.coded_server.dto.SubmissionRequestDto;
+import com.coded.coded_server.dto.SubmissionCreateResponseDto;
 import com.coded.coded_server.dto.SubmissionResponseDto;
 import com.coded.coded_server.service.SubmissionService;
 
@@ -22,8 +23,8 @@ public class SubmissionController {
     private final SubmissionService submissionService;
 
     @PostMapping
-    public ResponseEntity<SubmissionResponseDto> createSubmission(@RequestBody SubmissionRequestDto dto) {
-        SubmissionResponseDto response = submissionService.createSubmission(dto);
+    public ResponseEntity<SubmissionCreateResponseDto> createSubmission(@RequestBody SubmissionRequestDto dto) {
+        SubmissionCreateResponseDto response = submissionService.createSubmission(dto);
         return ResponseEntity.ok(response);
     }
 
