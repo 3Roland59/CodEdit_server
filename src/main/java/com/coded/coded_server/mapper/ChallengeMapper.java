@@ -19,6 +19,7 @@ public class ChallengeMapper {
                 .description(dto.getDescription())
                 .time(dto.getTime())
                 .languages(dto.getLanguages())
+                .challengeKey(dto.getChallengeKey())
                 .build();
     }
 
@@ -30,6 +31,7 @@ public class ChallengeMapper {
         response.setDescription(challenge.getDescription());
         response.setTime(challenge.getTime());
         response.setLanguages(challenge.getLanguages());
+        response.setChallengeKey(challenge.getChallengeKey());
         List<TestCaseResponseDto> testCases = challenge.getTestCases() != null
                 ? challenge.getTestCases().stream()
                     .map(TestCaseMapper::toResponse)
@@ -48,6 +50,7 @@ public class ChallengeMapper {
         response.setDescription(challenge.getDescription());
         response.setTime(challenge.getTime());
         response.setLanguages(challenge.getLanguages());
+        response.setChallengeKey(challenge.getChallengeKey());
 
         List<TestCaseResponseDto> testCases = challenge.getTestCases() != null
                 ? challenge.getTestCases().stream()

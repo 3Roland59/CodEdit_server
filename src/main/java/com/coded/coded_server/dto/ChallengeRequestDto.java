@@ -16,5 +16,6 @@ public class ChallengeRequestDto {
     private String description;
     private Integer time;
     private String languages;
+    private String challengeKey;
     private List<TestCaseRequestDto> testCases;
 }

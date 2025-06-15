@@ -33,6 +33,8 @@ public class Challenge {
 
     private String languages;
 
+    private String challengeKey;
+
     @OneToMany(mappedBy = "challenge", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<TestCase> testCases = new ArrayList<>();
 }
