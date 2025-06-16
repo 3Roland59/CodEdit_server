@@ -3,9 +3,12 @@ package com.coded.coded_server.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "challenges")
@@ -34,6 +37,11 @@ public class Challenge {
     private String languages;
 
     private String challengeKey;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    private LocalDateTime deadline;
 
     @OneToMany(mappedBy = "challenge", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<TestCase> testCases = new ArrayList<>();

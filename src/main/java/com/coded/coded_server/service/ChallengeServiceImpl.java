@@ -79,6 +79,7 @@ public ChallengeResponseDto createChallenge(ChallengeRequestDto dto, User user) 
         challenge.setLanguages(dto.getLanguages());
         challenge.setTime(dto.getTime());
         challenge.setChallengeKey(dto.getChallengeKey());
+        challenge.setDeadline(dto.getDeadline());
 
         testCaseRepository.deleteAll(challenge.getTestCases());
 
