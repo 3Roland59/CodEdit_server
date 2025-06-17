@@ -40,8 +40,7 @@ public class SubmissionServiceImpl implements SubmissionService {
 
         if (existing.isPresent()) {
             throw new ResourceAlreadyExistsException(
-                    "Submission already exists for student ID: " + dto.getStudentId() +
-                    " and challenge ID: " + dto.getChallengeId());
+                    "Submission already exists for student ID: " + dto.getStudentId());
         }
 
         Submission submission = SubmissionMapper.toEntity(dto, challenge);

@@ -1,6 +1,5 @@
 package com.coded.coded_server.controller;
 
-import com.coded.coded_server.dto.SubmissionKeyDto;
 import com.coded.coded_server.dto.SubmissionRequestDto;
 import com.coded.coded_server.dto.SubmissionCreateResponseDto;
 import com.coded.coded_server.dto.SubmissionResponseDto;
@@ -34,9 +33,9 @@ public class SubmissionController {
         return ResponseEntity.ok(responses);
     }
 
-    @GetMapping("/student/{challengeId}/{studentId}")
-    public ResponseEntity<SubmissionResponseDto> getSubmissionByStudentId(@RequestBody SubmissionKeyDto submissionKey,@PathVariable String studentId, @PathVariable UUID challengeId) {
-        SubmissionResponseDto response = submissionService.getSubmissionsByStudentId(studentId, challengeId, submissionKey.getSubmissionKey());
+    @GetMapping("/student/{challengeId}/{studentId}/{submissionKey}")
+    public ResponseEntity<SubmissionResponseDto> getSubmissionByStudentId(@PathVariable String submissionKey,@PathVariable String studentId, @PathVariable UUID challengeId) {
+        SubmissionResponseDto response = submissionService.getSubmissionsByStudentId(studentId, challengeId, submissionKey);
         return ResponseEntity.ok(response);
     }
 }
