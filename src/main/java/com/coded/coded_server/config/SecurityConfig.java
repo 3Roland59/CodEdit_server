@@ -43,7 +43,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         .requestMatchers(
             "/api/v1/auth/**",
             "/api/v1/submissions",
-            "/api/v1/submissions/student/{challengeId}/{studentId}",
+            "/api/v1/submissions/student/{challengeId}/{studentId}/{submissionKey}",
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/swagger-ui.html"
