@@ -42,6 +42,8 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         .authorizeHttpRequests(auth -> auth
         .requestMatchers(
             "/api/v1/auth/**",
+            "/api/v1/submissions",
+            "/api/v1/submissions/student/{challengeId}/{studentId}",
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/swagger-ui.html"

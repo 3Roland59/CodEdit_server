@@ -17,7 +17,6 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/submissions")
 @RequiredArgsConstructor
-@SecurityRequirement(name = "bearerAuth")
 public class SubmissionController {
 
     private final SubmissionService submissionService;
@@ -28,6 +27,7 @@ public class SubmissionController {
         return ResponseEntity.ok(response);
     }
 
+    @SecurityRequirement(name = "bearerAuth")
     @GetMapping("/challenge/{challengeId}")
     public ResponseEntity<List<SubmissionResponseDto>> getSubmissionsByChallengeId(@PathVariable UUID challengeId) {
         List<SubmissionResponseDto> responses = submissionService.getSubmissionsByChallengeId(challengeId);
