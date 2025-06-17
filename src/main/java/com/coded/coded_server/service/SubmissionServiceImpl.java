@@ -75,6 +75,14 @@ public class SubmissionServiceImpl implements SubmissionService {
     }
 
     @Override
+public List<SubmissionResponseDto> getSubmissionsByUserId(UUID userId) {
+    return submissionRepository.findByUserId(userId).stream()
+            .map(SubmissionMapper::toResponse)
+            .collect(Collectors.toList());
+}
+
+
+    @Override
 public SubmissionResponseDto getSubmissionsByStudentId(String studentId, UUID challengeId, String submissionKey) {
     Submission submission = submissionRepository.findByStudentIdAndChallengeId(studentId, challengeId)
             .orElseThrow(() -> new ResourceNotFoundException("Submission for challenge not found for student ID: " + studentId));
