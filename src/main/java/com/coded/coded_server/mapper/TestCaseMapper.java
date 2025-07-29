@@ -15,6 +15,7 @@ public class TestCaseMapper {
         testCase.setInputValue(dto.getInputValue());
         testCase.setOutputDataType(dto.getOutputDataType());
         testCase.setOutputValue(dto.getOutputValue());
+        testCase.setHidden(dto.getHidden());
         testCase.setChallenge(challenge);
         return testCase;
     }
@@ -26,6 +27,7 @@ public class TestCaseMapper {
                 .inputValue(testCase.getInputValue())
                 .outputDataType(testCase.getOutputDataType())
                 .outputValue(testCase.getOutputValue())
+                .hidden(testCase.getHidden())
                 .build();
     }
 }

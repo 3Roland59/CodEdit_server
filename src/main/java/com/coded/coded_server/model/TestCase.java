@@ -31,4 +31,7 @@ public class TestCase {
 
     @Column(name = "output_value", nullable = false, columnDefinition = "TEXT")
     private String outputValue;
+    
+    @Column
+    private Boolean hidden;
 }
