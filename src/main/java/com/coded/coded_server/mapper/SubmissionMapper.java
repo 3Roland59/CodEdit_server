@@ -34,20 +34,25 @@ public class SubmissionMapper {
         dto.setChallengeId(submission.getChallenge().getId());
         dto.setCode(submission.getCode());
         dto.setLanguage(submission.getLanguage());
-        dto.setSuccess(submission.getSuccess());
-        dto.setScore(submission.getScore());
-        dto.setMessage(submission.getMessage());
         dto.setCreatedAt(submission.getCreatedAt());
-
-        List<TestCaseResultResponseDto> testCasesResult = submission.getTestCaseResults() != null
-                ? submission.getTestCaseResults().stream()
-                    .map(TestCaseResultMapper::toResponse)
-                    .collect(Collectors.toList())
-                : List.of();
-
-        dto.setTestCaseResult(testCasesResult);
+    
+        if (submission.getSuccess() != null) {
+            dto.setSuccess(submission.getSuccess());
+            dto.setScore(submission.getScore());
+            dto.setMessage(submission.getMessage());
+    
+            List<TestCaseResultResponseDto> testCasesResult = submission.getTestCaseResults() != null
+                    ? submission.getTestCaseResults().stream()
+                        .map(TestCaseResultMapper::toResponse)
+                        .collect(Collectors.toList())
+                    : List.of();
+    
+            dto.setTestCaseResult(testCasesResult);
+        }
+    
         return dto;
     }
+    
 
     public static SubmissionCreateResponseDto toCreateResponse(Submission submission) {
         SubmissionCreateResponseDto dto = new SubmissionCreateResponseDto();
@@ -59,6 +64,7 @@ public class SubmissionMapper {
         dto.setCode(submission.getCode());
         dto.setLanguage(submission.getLanguage());
         dto.setCreatedAt(submission.getCreatedAt());
+        dto.setSuccess(null);
         return dto;
     }
 }

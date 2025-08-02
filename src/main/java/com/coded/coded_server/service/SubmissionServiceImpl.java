@@ -40,8 +40,7 @@ public class SubmissionServiceImpl implements SubmissionService {
 
         if (existing.isPresent()) {
             throw new ResourceAlreadyExistsException(
-                    "Submission already exists for student ID: " + dto.getStudentId() +
-                    " and challenge ID: " + dto.getChallengeId());
+                    "Submission already exists for student ID: " + dto.getStudentId());
         }
 
         Submission submission = SubmissionMapper.toEntity(dto, challenge);
@@ -74,6 +73,14 @@ public class SubmissionServiceImpl implements SubmissionService {
                 .map(SubmissionMapper::toResponse)
                 .collect(Collectors.toList());
     }
+
+    @Override
+public List<SubmissionResponseDto> getSubmissionsByUserId(UUID userId) {
+    return submissionRepository.findByUserId(userId).stream()
+            .map(SubmissionMapper::toResponse)
+            .collect(Collectors.toList());
+}
+
 
     @Override
 public SubmissionResponseDto getSubmissionsByStudentId(String studentId, UUID challengeId, String submissionKey) {

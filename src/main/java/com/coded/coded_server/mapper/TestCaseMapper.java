@@ -1,7 +1,5 @@
 package com.coded.coded_server.mapper;
 
-import java.util.UUID;
-
 import com.coded.coded_server.dto.TestCaseRequestDto;
 import com.coded.coded_server.dto.TestCaseResponseDto;
 import com.coded.coded_server.model.Challenge;
