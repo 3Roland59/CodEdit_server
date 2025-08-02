@@ -12,5 +12,5 @@ public class TestCaseResponseDto {
     private String inputValue;
     private String outputDataType;
     private String outputValue;
-    private String hidden;
+    private Boolean hidden;
 }

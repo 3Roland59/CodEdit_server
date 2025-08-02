@@ -8,5 +8,5 @@ public class TestCaseRequestDto {
     private String inputValue;
     private String outputDataType;
     private String outputValue;
-    private String hidden;
+    private Boolean hidden;
 }
