@@ -42,11 +42,13 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         .authorizeHttpRequests(auth -> auth
         .requestMatchers(
             "/api/v1/auth/**",
-            "/api/v1/submissions/**",
+            "/api/v1/submissions/student/*/*/*",
+            "/api/v1/challenges/*",
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/swagger-ui.html"
         ).permitAll()
+        .requestMatchers("/api/v1/challenges/user","/api/v1/submissions/**").authenticated()
         .anyRequest().authenticated()
         )
         .authenticationProvider(authenticationProvider())
