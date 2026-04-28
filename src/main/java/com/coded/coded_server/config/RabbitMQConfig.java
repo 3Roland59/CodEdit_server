@@ -20,7 +20,7 @@ public class RabbitMQConfig {
     @Bean
 public ConnectionFactory connectionFactory() {
     CachingConnectionFactory factory = new CachingConnectionFactory();
-    factory.setUri("amqps://devjhapf:O2VMiGNvTArVNAjRgk7QeHO6mFM5EjLZ@moose.rmq.cloudamqp.com/devjhapf");
+    factory.setUri(SECRET_URI);
     return factory;
 }
 
