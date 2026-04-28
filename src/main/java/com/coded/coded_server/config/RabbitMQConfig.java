@@ -14,7 +14,7 @@ import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 @EnableRabbit
 public class RabbitMQConfig {
 
-    @Value("spring.rabbitmq.uri")
+    @Value("${spring.rabbitmq.uri}")
     private String SECRET_URI;
 
     @Bean
